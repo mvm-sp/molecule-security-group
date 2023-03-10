@@ -50,7 +50,7 @@ jobs:
         env:
           ANSIBLE_FORCE_COLOR: '1'
       - name: Run Molecule tests.
-        run: molecule -verbose verify
+        run: molecule -verbose test
         env:
           PY_COLORS: '1'
           ANSIBLE_FORCE_COLOR: '1'
