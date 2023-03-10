@@ -35,7 +35,7 @@ jobs:
         run: pip3 install molecule[docker]
 
       - name: Install yamllint.
-        run: pip3 install
+        run: pip3 install yamllint
 
       - name: Install ansible-lint.
         run: pip3 install ansible-lint                     
@@ -55,4 +55,4 @@ jobs:
           PY_COLORS: '1'
           ANSIBLE_FORCE_COLOR: '1'
           MOLECULE_DISTRO: ${{ matrix.distro }}
-        working-directory: molecule          
+        working-directory: "${{ github.repository }}molecule"          
