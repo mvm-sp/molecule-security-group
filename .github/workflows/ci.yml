@@ -49,10 +49,10 @@ jobs:
           molecule_working_dir: "${{ github.repository }}"
         env:
           ANSIBLE_FORCE_COLOR: '1'
-#      - name: Run Molecule tests.
-#        run: molecule -verbose verify
-#        env:
-#          PY_COLORS: '1'
-#          ANSIBLE_FORCE_COLOR: '1'
-#          MOLECULE_DISTRO: ${{ matrix.distro }}
-#        working-directory: "${{ github.repository }}/molecule"          
+      - name: Run Molecule tests.
+        run: molecule -verbose verify
+        env:
+          PY_COLORS: '1'
+          ANSIBLE_FORCE_COLOR: '1'
+          MOLECULE_DISTRO: ${{ matrix.distro }}
+        working-directory: "${{ github.repository }}"          
