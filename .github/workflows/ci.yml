@@ -6,27 +6,27 @@ on:
       - 'main'
 
 jobs:
-
-  test:
-    name: Molecule
+  molecule:
     runs-on: ubuntu-latest
-
+    strategy:
+      fail-fast: false
+      matrix:
+        scenario:
+          - centos-8
+          - debian-10
+          - fedora-34
+          - oraclelinux-8
+          - ubuntu-20.04
     steps:
-      - name: Check out the codebase.
+      - name: Checkout
         uses: actions/checkout@v2
-
-      - name: Set up Python 3.
-        uses: actions/setup-python@v2
         with:
-          python-version: '3.x'
-
-      - name: Install test dependencies.
-        run: pip3 install ansible molecule[docker] yamllint ansible-lint
-
-      - name: Run Molecule tests.
-        run: molecule -verbose test
+          path: "${{ github.repository }}"
+      - name: Molecule
+        uses: gofrolist/molecule-action@v2
+        with:
+          molecule_options: --debug
+          molecule_command: test
+          molecule_args: --scenario-name ${{ matrix.scenario }}
         env:
-          PY_COLORS: '1'
           ANSIBLE_FORCE_COLOR: '1'
-          MOLECULE_DISTRO: ${{ matrix.distro }}
-        working-directory: molecule
