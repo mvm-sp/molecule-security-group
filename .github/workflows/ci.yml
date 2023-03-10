@@ -51,8 +51,6 @@ jobs:
           ANSIBLE_FORCE_COLOR: '1'
       - name: Run Molecule tests.
         run: molecule -verbose test
-        with:
-          molecule_working_dir: "${{ github.repository }}"
         env:
           PY_COLORS: '1'
           ANSIBLE_FORCE_COLOR: '1'
