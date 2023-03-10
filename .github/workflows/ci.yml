@@ -28,8 +28,17 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Install test dependencies.
-        run: pip3 install ansible molecule[docker] yamllint ansible-lint          
+      - name: Install Ansible.
+        run: pip3 install ansible          
+
+      - name: Install molocule[docker].
+        run: pip3 install molecule[docker]
+
+      - name: Install yamllint.
+        run: pip3 install
+
+      - name: Install ansible-lint.
+        run: pip3 install ansible-lint                     
 
       - name: Molecule
         uses: gofrolist/molecule-action@v1
@@ -42,6 +51,8 @@ jobs:
           ANSIBLE_FORCE_COLOR: '1'
       - name: Run Molecule tests.
         run: molecule -verbose test
+        with:
+          molecule_working_dir: "${{ github.repository }}"
         env:
           PY_COLORS: '1'
           ANSIBLE_FORCE_COLOR: '1'
