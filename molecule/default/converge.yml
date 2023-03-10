@@ -1,10 +1,9 @@
 ---
 - name: Converge
   hosts: all
-  gather_facts: false
   tasks:
     - ansible.builtin.debug:
-        msg: loading playbook
+        msg: play1
 
-  - name: This fails because I'm inside a play already
-    ansible.builtin.import_playbook: ../../security-group.yml
+- name: Include a play after another play
+  ansible.builtin.import_playbook: ../../security-group.yml
