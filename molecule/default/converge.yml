@@ -3,6 +3,8 @@
   hosts: all
   gather_facts: false
   tasks:
-    - name: "Include ansible-sg"
-      ansible.builtin.include_role:
-        name: "ansible-sg"
+    - ansible.builtin.debug:
+        msg: loading playbook
+
+    - name: This fails because I'm inside a play already
+      ansible.builtin.import_playbook: ../../security-group.yml
