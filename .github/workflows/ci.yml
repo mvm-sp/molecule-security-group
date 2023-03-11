@@ -12,10 +12,10 @@ jobs:
       fail-fast: false
       matrix:
         scenario:
-          # - centos-8
-          # - debian-10
-          # - fedora-34
-          # - oraclelinux-8
+          - centos-8
+          - debian-10
+          - fedora-34
+          - oraclelinux-8
           - ubuntu-20.04
     steps:
       - name: Checkout
