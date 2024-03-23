@@ -40,7 +40,7 @@ jobs:
       - name: Install ansible-lint.
         run: pip3 install ansible-lint                     
  
-      - name: Molecule Test
+      - name: Molecule
         uses: gofrolist/molecule-action@v2
         with:
           molecule_options: --debug --base-config ../../tests/molecule/base.yml
