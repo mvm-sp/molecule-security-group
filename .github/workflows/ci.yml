@@ -45,7 +45,7 @@ jobs:
         with:
           molecule_options: --debug --base-config ../../tests/molecule/base.yml
           molecule_command: test
-          molecule_working_dir: ${{ matrix.role }}
+          molecule_working_dir: ${{ github.repository }}
         env:
           PY_COLORS: '1'
           ANSIBLE_FORCE_COLOR: '1'          
