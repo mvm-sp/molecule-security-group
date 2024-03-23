@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - 'main'
-concurrency:
-  group: ${{ matrix.scenario }}
-  cancel-in-progress: true
 
 jobs:
   molecule:
@@ -48,3 +45,6 @@ jobs:
         env:
           PY_COLORS: '1'
           ANSIBLE_FORCE_COLOR: '1'
+concurrency:
+  group: ${{ matrix.scenario }}
+  cancel-in-progress: true          
