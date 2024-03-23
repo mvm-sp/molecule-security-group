@@ -19,7 +19,7 @@ jobs:
           - ubuntu-20.04
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           path: "${{ github.repository }}"
 
@@ -39,16 +39,16 @@ jobs:
 
       - name: Install ansible-lint.
         run: pip3 install ansible-lint                     
-
-      - name: Molecule
-        uses: gofrolist/molecule-action@v1
+ 
+      - name: Molecule Test
+        uses: gofrolist/molecule-action@v2
         with:
-          molecule_options: --debug --base-config molecule/_shared/base.yml
+          molecule_options: --debug --base-config ../../tests/molecule/base.yml
           molecule_command: test
-          molecule_args: --scenario-name ${{ matrix.scenario }}
-          molecule_working_dir: "${{ github.repository }}"
+          molecule_working_dir: ${{ matrix.role }}
         env:
-          ANSIBLE_FORCE_COLOR: '1'
+          PY_COLORS: '1'
+          ANSIBLE_FORCE_COLOR: '1'          
       - name: Run Molecule tests.
         run: molecule -verbose test
         env:
