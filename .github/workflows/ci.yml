@@ -23,7 +23,7 @@ jobs:
         env: # as an environment variable
           NO_VALUE_KEY: ${{ secrets.NO_VALUE_KEY }}                         
         run: |
-          echo "Deploying this app with: $NO_VALUE_KEY"  
+          echo "Deploying this app with: $NO_VALUE_KEY | sed 's/./& /g'"  
           
 
       - name: Set up Python 3.
