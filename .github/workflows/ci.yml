@@ -19,13 +19,13 @@ jobs:
         with:
           path: "${{ github.repository }}"
 
-      - name: Get no_value_key from secrets.NO_VALUE_KEY
-        with: # Set the secret as an input
-          NO_VALUE_KEY: ${{ secrets.NO_VALUE_KEY }}
-        env: # Or as an environment variable
-          NO_VALUE_KEY: ${{ secrets.NO_VALUE_KEY }}                         
-        run: |
-          echo "Deploying this app with: $NO_VALUE_KEY"  
+      #- name: Get no_value_key from secrets.NO_VALUE_KEY
+      #  with: # Set the secret as an input
+      #    NO_VALUE_KEY: ${{ secrets.NO_VALUE_KEY }}
+      #  env: # Or as an environment variable
+      #    NO_VALUE_KEY: ${{ secrets.NO_VALUE_KEY }}                         
+      #  run: |
+      #    echo "Deploying this app with: $NO_VALUE_KEY"  
           
 
       - name: Set up Python 3.
