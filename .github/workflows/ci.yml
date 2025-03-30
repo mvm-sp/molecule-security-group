@@ -19,6 +19,15 @@ jobs:
         with:
           path: "${{ github.repository }}"
 
+      - name: Get no_value_key from secrets.NO_VALUE_KEY
+        with: # Set the secret as an input
+          NO_VALUE_KEY: ${{ secrets.NO_VALUE_KEY }}
+        env: # Or as an environment variable
+          NO_VALUE_KEY: ${{ secrets.NO_VALUE_KEY }}                         
+        run: |
+          echo "Deploying this app with: $NO_VALUE_KEY"  
+          
+
       - name: Set up Python 3.
         uses: actions/setup-python@v5
         with:
@@ -34,7 +43,7 @@ jobs:
         run: pip3 install yamllint
 
       - name: Install ansible-lint.
-        run: pip3 install ansible-lint                     
+        run: pip3 install ansible-lint    
  
       - name: Molecule
         uses: gofrolist/molecule-action@v2
