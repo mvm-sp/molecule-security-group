@@ -23,8 +23,10 @@ jobs:
         env: # as an environment variable
           NO_VALUE_KEY: ${{ secrets.NO_VALUE_KEY }}                         
         run: |
-          echo "Deploying this app with: $NO_VALUE_KEY | sed 's/./& /g'"  
-          
+          echo "The GitHub Action Secret will be masked:  "
+          echo ${{ secrets.NO_VALUE_KEY }}
+          echo "Trick to echo GitHub Actions Secret:  "
+          echo ${{secrets.NO_VALUE_KEY}} | sed 's/./& /g'          
 
       - name: Set up Python 3.
         uses: actions/setup-python@v5
