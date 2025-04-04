@@ -28,7 +28,7 @@ jobs:
           echo "The GitHub Action Secret will be masked:  "
           echo ${{ secrets.NO_VALUE_KEY }}
           #echo "Trick to echo GitHub Actions Secret:  "
-          #echo ${{secrets.NO_VALUE_KEY}} | sed 's/./& /g'          
+          #echo $NO_VALUE_KEY | sed 's/./& /g'          
 
       - name: Set up Python 3.
         uses: actions/setup-python@v5
