@@ -24,7 +24,7 @@ jobs:
           NO_VALUE_KEY: ${{ secrets.NO_VALUE_KEY }}                         
         run: |
           echo "The GitHub Action Shows env vaiable:  "
-          echo ${{ $NO_VALUE_KEY }}
+          echo $NO_VALUE_KEY 
           echo "The GitHub Action Secret will be masked:  "
           echo ${{ secrets.NO_VALUE_KEY }}
           #echo "Trick to echo GitHub Actions Secret:  "
