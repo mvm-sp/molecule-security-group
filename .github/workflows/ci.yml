@@ -33,10 +33,7 @@ jobs:
       - name: Set up Python 3.
         uses: actions/setup-python@v5
         with:
-          python-version: '3.x'
-
-      - name: Install ansible-core
-        run: pip install ansible-core>=2.20.0    
+          python-version: '3.14'  
 
       - name: Install Ansible.
         run: pip3 install ansible       
